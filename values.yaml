@@ -42,22 +42,19 @@ service:
   port: 80
   loadBalancerIP:
 
-ingress:
-  enabled: true
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    kubernetes.io/tls-acme: "true"
-  path: /
-  hosts:
-    - bitwarden.example
-  tls:
-    - secretName: bitwarden-tls
-      hosts:
-        - bitwarden.example
-
-  # pathType is only for k8s >= 1.1=
-  pathType: Prefix
-
+    #ingress:
+    #  enabled: true
+    #  annotations:
+    #    kubernetes.io/ingress.class: nginx
+    #    cert-manager.io/cluster-issuer: letsencrypt-prod
+    #    ingress.kubernetes.io/ssl-redirect: "true"
+    #  path: /
+    #  hosts:
+    #    - bitwarden.tino.sh
+    #  tls:
+    #    - secretName: bitwarden-tino-sh-tls
+    #      hosts:
+    #        - bitwarden.tino.sh
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -83,8 +80,8 @@ deploymentAnnotations: {}
 
 ## Persist data to a persitent volume
 persistence:
-  enabled: false
+  enabled: true
   accessMode: ReadWriteOnce
-  size: 800Mi
-  #storageClass:
-  #existingClaim: "bitwarden-pvc"
+  size: 2Gi
+  storageClass:
+  existingClaim: "bitwarden-pvc"
