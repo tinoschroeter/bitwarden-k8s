@@ -4,16 +4,9 @@ Helm chart for deploying [dani-garcia/bitwarden_rs](https://github.com/dani-garc
 ## TL;DR;
 
 ```console
-$ helm repo add bitwarden https://tinoschroeter.github.io/bitwarden-k8s/
-$ helm install bitwarden bitwarden/bitwarden-k8s -f values.yaml
-```
-
-OR
-
-```console
 $ git clone https://github.com/tinoschroeter/bitwarden-k8s
 $ cd bitwarden-k8s
-$ helm install ./chart/bitwarden-k8s
+$ helm install bitwarden ./chart/bitwarden-k8s -f values.yaml
 ```
 
 
