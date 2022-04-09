@@ -42,19 +42,19 @@ service:
   port: 80
   loadBalancerIP:
 
-    #ingress:
-    #  enabled: true
-    #  annotations:
-    #    kubernetes.io/ingress.class: nginx
-    #    cert-manager.io/cluster-issuer: letsencrypt-prod
-    #    ingress.kubernetes.io/ssl-redirect: "true"
-    #  path: /
-    #  hosts:
-    #    - bitwarden.tino.sh
-    #  tls:
-    #    - secretName: bitwarden-tino-sh-tls
-    #      hosts:
-    #        - bitwarden.tino.sh
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    ingress.kubernetes.io/ssl-redirect: "true"
+  path: /
+  hosts:
+    - bitwarden.tino.sh
+  tls:
+    - secretName: bitwarden-tino-sh-tls
+      hosts:
+        - bitwarden.tino.sh
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
